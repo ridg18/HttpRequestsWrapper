@@ -21,15 +21,32 @@ import java.util.Map;
 public class PutRequest extends RequestBase {
     private String body;
 
-
+    /**
+     * <p><b>Constructor</b></p>
+     */
     public PutRequest() {
     }
 
+    /**
+     * <p><b>Add a String body to the Put request</b>
+     * the method get a String and convert it to JSON form </p>
+     *
+     * @param body
+     * @return
+     */
     public PutRequest withBody(String body) {
         this.body = body;
         return this;
     }
 
+    /**
+     * <p><b>Add the necessary parameters and execute the request</b><br/>
+     * the method build the request (add the headers and the body)<br/>
+     * and execute the request</p>
+     *
+     * @return
+     * @throws Exception
+     */
     @Override
     public HttpResponse send() throws Exception {
         client = new DefaultHttpClient();

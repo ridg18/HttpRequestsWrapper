@@ -22,6 +22,14 @@ public class GetRequest extends RequestBase {
     public GetRequest() {
     }
 
+    /**
+     * <p><b>Add the necessary parameters and execute the request</b><br/>
+     * the method build the request (add the headers)<br/>
+     * and execute the request</p>
+     *
+     * @return
+     * @throws Exception
+     */
     @Override
     public HttpResponse send() throws Exception {
         client = new DefaultHttpClient();
