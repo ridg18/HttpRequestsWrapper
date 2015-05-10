@@ -1,8 +1,11 @@
 package com.httpRequests;
 
+import org.apache.commons.lang.time.StopWatch;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
@@ -14,12 +17,13 @@ import java.util.HashMap;
  * To change this template use File | Settings | File Templates.
  */
 public class RequestBase implements HttpRequest {
-
+    protected static final Logger logger = LoggerFactory.getLogger(RequestBase.class);
     protected HttpClient client;
     public HashMap<String, String> RequestHeader = new HashMap<String, String>();
     protected int responseStatus;
     protected String url;
     protected StringBuffer result = new StringBuffer();
+    protected StopWatch watch;
 
     /**
      * <p><b>Add headers to the request as a Hashmap</b><br/>
@@ -73,6 +77,23 @@ public class RequestBase implements HttpRequest {
     @Override
     public HttpResponse send() throws Exception {
         return null;
+    }
+
+    /**
+     * <p><b>the method execute the request with stop watch that calculate
+     * how much time took the request to be sent</b><br/>
+     * </p>
+     *
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public HttpResponse sendRequestWithStopWatch() throws Exception {
+        watch = new StopWatch();
+        watch.start();
+        HttpResponse response= send();
+        watch.stop();
+        return response;
     }
 
     /**

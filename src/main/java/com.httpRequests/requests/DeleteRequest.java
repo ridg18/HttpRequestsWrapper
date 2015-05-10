@@ -36,7 +36,7 @@ public class DeleteRequest extends RequestBase {
         }
         HttpResponse response = client.execute(request);
         responseStatus = response.getStatusLine().getStatusCode();
-        System.out.println("\nSending 'GET' request to URL : " + url
+        logger.info("\nSending 'GET' request to URL : " + url
                 + "\nResponse Code : " + responseStatus);
         BufferedReader rd = new BufferedReader(
                 new InputStreamReader(response.getEntity().getContent()));

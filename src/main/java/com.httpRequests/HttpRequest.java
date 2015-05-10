@@ -25,4 +25,10 @@ public interface HttpRequest {
      * @return
      */
     HttpResponse send() throws IOException, Exception;
+
+    /**
+     * <p><b>send the request</b></p>
+     * @return
+     */
+    HttpResponse sendRequestWithStopWatch() throws IOException, Exception;
 }

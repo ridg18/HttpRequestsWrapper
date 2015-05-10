@@ -64,7 +64,7 @@ public class PostRequest extends RequestBase {
         HttpResponse response = client.execute(post);
         responseStatus = response.getStatusLine().getStatusCode();
 
-        System.out.println("\nSending 'POST' request to URL : " + url
+        logger.info("\nSending 'POST' request to URL : " + url
                 + "\nPost parameters : " + post.getEntity()
                 + "\nResponse Code : " + responseStatus);
         try {
